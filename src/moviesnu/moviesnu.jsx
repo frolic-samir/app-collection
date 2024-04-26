@@ -1,10 +1,10 @@
-import React from "react";
-import Nav from "./components/Nav";
-import Row from "./components/Row";
-import { requestUrl } from "./requests";
-import Banner from "./components/Banner";
+import Nav from "./components/nav";
+import Row from "./components/row";
+import Banner from "./components/banner";
 
-function Movienu() {
+import { requestUrl } from "./requests";
+
+const Moviesnu = () => {
   return (
     <div>
       <Banner />
@@ -16,6 +16,6 @@ function Movienu() {
       <Row type="Documentary" fetchUrl={requestUrl.fetchDocumentary} />
     </div>
   );
-}
+};
 
-export default Movienu;
+export default Moviesnu;

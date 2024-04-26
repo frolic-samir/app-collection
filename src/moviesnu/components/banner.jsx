@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../css/banner.css";
 
-function Banner() {
+const Banner = () => {
   const [fetchMovie, setMovie] = useState();
 
   useEffect(() => {
@@ -43,6 +43,6 @@ function Banner() {
       )}
     </>
   );
-}
+};
 
 export default Banner;

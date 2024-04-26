@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function Item(props) {
+const Item = (props) => {
   const [check, setCheck] = useState(true);
+
   return (
     <div className="item__row">
       <div>
@@ -14,15 +15,8 @@ function Item(props) {
           {props.itemValue}
         </li>
       </div>
-      {/* <input
-        type="checkbox"
-        onClick={() => {
-          setCheck(!check);
-          props.check(props.id, check);
-        }}
-      /> */}
     </div>
   );
-}
+};
 
 export default Item;
