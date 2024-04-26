@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
 import "./calc.css";
 
-function Calculator() {
+const Calculator = () => {
   const [state, setState] = useState({ prev: "", cur: "", operator: "" });
 
   const updateNumber = (e) => {
@@ -58,6 +59,7 @@ function Calculator() {
       setState({ ...state, cur: text });
     }
   };
+
   const clear = () => {
     setState({ prev: "", cur: "", operator: "" });
   };
@@ -126,6 +128,6 @@ function Calculator() {
       </div>
     </div>
   );
-}
+};
 
 export default Calculator;

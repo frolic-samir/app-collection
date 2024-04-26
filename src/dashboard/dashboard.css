@@ -1,23 +1,20 @@
-.home {
+.main-dashboard {
   height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.link-container li {
-  list-style-type: none;
-  padding: 10px;
-  border: 1px solid black;
-  margin: 3px;
-  font-size: 1.3rem;
-}
-.link {
-  text-decoration: none;
-}
-
 .link-container {
   display: flex;
+  column-gap: 6px;
+}
+
+.link {
+  padding: 10px;
+  border: 1px solid black;
+  font-size: 1.3rem;
+  text-decoration: none;
 }
 
 .footer {
@@ -26,7 +23,7 @@
   width: 100%;
   text-align: center;
   padding: 10px;
-  color: white;
   margin-bottom: 0;
+  color: white;
   background-color: black;
 }

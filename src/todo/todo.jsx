@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import Item from "./components/Item";
-import "./todo.css";
+import { useState } from "react";
 
-function Todo() {
+import "./todo.css";
+import Item from "./components/Item";
+
+const Todo = () => {
   const [inputItem, setInputItem] = useState("");
   const [items, setItems] = useState([]);
 
@@ -63,5 +64,6 @@ function Todo() {
       </div>
     </div>
   );
-}
+};
+
 export default Todo;

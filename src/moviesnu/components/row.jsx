@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "../css/Row.css";
+import { useState, useEffect } from "react";
+
 import movieTrailer from "movie-trailer";
 
-function Row(props) {
+import "../css/Row.css";
+
+const Row = (props) => {
   const [movies, setMovies] = useState(null);
   const [showDetail, setDetail] = useState({ open: false, data: null });
   const [playTrailer, setTrailer] = useState(false);
@@ -21,6 +23,7 @@ function Row(props) {
 
   let detail;
   let detailMask;
+
   const handleTrailer = (m) => {
     if (playTrailer) {
       setTrailer(false);
@@ -103,6 +106,6 @@ function Row(props) {
       )}
     </>
   );
-}
+};
 
 export default Row;
