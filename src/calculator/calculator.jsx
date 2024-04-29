@@ -7,19 +7,25 @@ const Calculator = () => {
 
   const updateNumber = (e) => {
     if (e.target.innerText === "." && state.cur.includes(".")) return;
+
     setState({ ...state, cur: state.cur + e.target.innerText });
   };
 
   const operation = (e) => {
     if (state.cur === "") return;
+
     if (state.prev !== "") {
-      let res = calculate();
-      setState({ prev: res, cur: "", operator: e.target.innerText });
-    } else setState({ prev: state.cur, cur: "", operator: e.target.innerText });
+      const res = calculate();
+
+      return setState({ prev: res, cur: "", operator: e.target.innerText });
+    }
+
+    setState({ prev: state.cur, cur: "", operator: e.target.innerText });
   };
 
   const calculate = () => {
     let compute;
+
     switch (state.operator) {
       case "+":
         compute = parseFloat(state.prev) + parseFloat(state.cur);
@@ -27,7 +33,7 @@ const Calculator = () => {
       case "-":
         compute = parseFloat(state.prev) - parseFloat(state.cur);
         break;
-      case "*":
+      case "x":
         compute = parseFloat(state.prev) * parseFloat(state.cur);
         break;
       case "/":
@@ -42,21 +48,19 @@ const Calculator = () => {
 
   const showResult = () => {
     let res = calculate();
+
     if (isNaN(res)) {
       return;
-    } else {
-      setState({
-        prev: "",
-        cur: res,
-        operator: "",
-      });
     }
+
+    setState({ prev: "", cur: res, operator: "" });
   };
 
   const del = () => {
     if (state.cur) {
-      let text = state.cur.toString().slice(0, state.cur.length - 1);
-      setState({ ...state, cur: text });
+      const value = state.cur.toString().slice(0, state.cur.length - 1);
+
+      setState({ ...state, cur: value });
     }
   };
 
@@ -65,66 +69,58 @@ const Calculator = () => {
   };
 
   return (
-    <div className="center-div-container">
-      <div className="num-list">
-        {state.prev} {state.operator}
-      </div>
-      <div className="num">{state.cur ? state.cur : "0"}</div>
-      <div className="num-div">
-        <button className="clear" onClick={clear}>
-          AC
-        </button>
-        <button className="del" onClick={del}>
-          DEL
-        </button>
-        <button className="operator" onClick={operation}>
-          /
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          7
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          8
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          9
-        </button>
-        <button className="operator" onClick={operation}>
-          *
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          4
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          5
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          6
-        </button>
-        <button className="operator" onClick={operation}>
-          +
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          1
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          2
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          3
-        </button>
-        <button className="operator" onClick={operation}>
-          -
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          .
-        </button>
-        <button className="num-data" onClick={updateNumber}>
-          0
-        </button>
-        <button className="equal" onClick={showResult}>
-          =
-        </button>
+    <div className="calc-container">
+      <div className="calc-wrapper">
+        <div className="num-list">
+          {state.prev} {state.operator}
+        </div>
+        <div className="num">{state.cur || "0"}</div>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>%</td>
+              <td onClick={operation}>x</td>
+              <td onClick={operation}>/</td>
+              <td className="operand del-btn" onClick={del}>
+                Del
+              </td>
+            </tr>
+
+            <tr>
+              <td onClick={updateNumber}>7</td>
+              <td onClick={updateNumber}>8</td>
+              <td onClick={updateNumber}>9</td>
+              <td className="operand" onClick={operation}>
+                -
+              </td>
+            </tr>
+
+            <tr>
+              <td onClick={updateNumber}>4</td>
+              <td onClick={updateNumber}>5</td>
+              <td onClick={updateNumber}>6</td>
+              <td className="operand" onClick={operation}>
+                +
+              </td>
+            </tr>
+
+            <tr>
+              <td onClick={updateNumber}>1</td>
+              <td onClick={updateNumber}>2</td>
+              <td onClick={updateNumber}>3</td>
+              <td rowSpan={2} className="operand result" onClick={showResult}>
+                =
+              </td>
+            </tr>
+
+            <tr>
+              <td onClick={clear}>AC</td>
+              <td onClick={updateNumber}>0</td>
+              <td onClick={updateNumber}>.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

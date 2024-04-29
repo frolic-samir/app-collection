@@ -1,68 +1,71 @@
-.center-div-container {
-  display: grid;
-  grid-template-columns: repeat(1, 300px);
-  grid-template-rows: repeat(4, 30px);
+.calc-container {
+  height: 100vh;
+  display: flex;
   justify-content: center;
-  margin-top: 10vh;
+  align-items: center;
+}
+
+.calc-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  margin: auto;
 }
 
 .num-list {
-  grid-row: 1/2;
-  background-color: black;
+  height: 55px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  background-color: #232D36;
   color: white;
-  text-align: right;
-  padding-top: 3px;
-  padding-right: 10px;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  text-align:right;
+  padding: 6px 10px 4px 10px;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
 }
 
 .num {
-  grid-row: 2/3;
-  background-color: black;
+  background-color: #232D36;
   color: white;
   text-align: right;
-  padding-bottom: 12px;
-  padding-right: 10px;
+  padding:0 10px 12px 10px;
   font-size: 1.3rem;
 }
 
-.num-div {
-  grid-row: 3/4;
-  display: grid;
-  grid-template-columns: repeat(4, 75px);
-  grid-template-rows: repeat(5, 50px);
+table{
+  font-size: 0.75rem;
+  margin-top: 2px;
+  padding: 4px 0 4px 0;
+  color: white;
+  background-color: #25313D;
+  border-spacing: 10px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
-.clear {
-  grid-column: 1/3;
+table tr{
+  margin-bottom: 16px;
 }
 
-.del {
-  grid-column: 3/4;
+table td{
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 100%;
+  background-color: #505050;
+  cursor: pointer;  
 }
 
-.del:hover {
-  transform: scale(1);
+.operand{
+  background-color: #FF9500;
 }
 
-.equal {
-  grid-column: 3/5;
+.del-btn{
+  border-radius: 22px;
 }
 
-button {
-  margin: 2px;
-  font-size: 1.2rem;
-}
-
-button:hover {
-  transform: scale(1);
-}
-
-form {
-  grid-column: 4/5;
-  font-size: 1.3rem;
-}
-input {
-  font-size: 1.3rem;
+.result{
+  border-radius: 22px;
 }
